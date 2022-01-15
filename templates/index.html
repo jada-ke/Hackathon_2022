@@ -18,13 +18,23 @@
     data: {
         labels: xValues,
         datasets: [{
-        data: {{  inflation_values  }},
+        data: {{  cumulative_infl  }},
         borderColor: "red",
-        fill: false
+        fill: false,
+        label: "Cumulative inflation"
+        },
+        {
+        data: {{  yearly_infl  }},
+        borderColor: "blue",
+        fill: false,
+        label: "Yearly inflation"
         }]
     },
     options: {
-        legend: {display: false}
+        title: {
+            display: true,
+            text: 'Inflation since your last raise'
+        }
     }
     });
 </script>
