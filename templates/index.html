@@ -5,9 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
-ayo :D
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<script>
+    var xValues = {{  years  }};
+    var ctx = document.getElementById('myChart');
 
+    var myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+        labels: xValues,
+        datasets: [{
+        data: {{  cumulative_infl  }},
+        borderColor: "red",
+        fill: false,
+        label: "Cumulative inflation"
+        },
+        {
+        data: {{  yearly_infl  }},
+        borderColor: "blue",
+        fill: false,
+        label: "Yearly inflation"
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Inflation since your last raise'
+        }
+    }
+    });
+</script>
+<p>Since your last raise, inflation was {{ inflation_total }}%</p>
 </body>
 </html>
