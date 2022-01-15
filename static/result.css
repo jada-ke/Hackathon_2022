@@ -1,0 +1,121 @@
+*
+{
+    margin:0;
+    padding:0;
+    font-family: "Sora", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
+
+/*SECTION ONE*/
+.sectionOne{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: #E6F6FF;
+    
+}
+.sectionOne h1{
+    text-align: center;
+    color: #004B76;
+}
+
+/*SECTION TWO*/
+.sectionTwo h2{
+    padding: 30px;
+    text-align: center;
+    color: #004B76;
+    font-weight: 600;
+}
+
+.sectionTwo p{
+    font-size: 20px;
+    text-align: center;
+    color: #004B76;
+}
+
+.sectionTwo .gridContainer{
+    display: grid;
+    grid-gap: 50px 10px;
+    margin: auto;
+    justify-items: center;
+    max-width:900px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sectionTwo .gridContainer .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(230, 246, 255, 0.27);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.sectionTwo .gridContainer .box h4{
+    color: #FF9F9F;
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.sectionTwo .gridContainer .box h5{
+    color: #FF2D2D;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+/*RESPONSIVE*/
+@media (min-width: 600px) {
+    .gridContainer { 
+        grid-template-columns: repeat(3, 1fr); 
+        
+        }
+}
+
+/*SECTION THREE*/
+.sectionThree{
+    background: #E6F6FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectionThree h2{
+    padding: 30px;
+    text-align: center;
+    color: #004B76;
+    font-weight: 600;
+}
+
+
+.sectionThree img{
+    width: 500px;
+    height: auto;
+}
+
+
+
+/*SECTION FOUR*/
+.sectionFour h2{
+    padding: 30px;
+    text-align: center;
+    color: #004B76;
+    font-weight: 600;
+}
+
+.sectionFour p{
+    font-size: 20px;
+    text-align: center;
+    color: #004B76;
+    
+}
