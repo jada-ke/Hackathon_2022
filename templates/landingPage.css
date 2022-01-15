@@ -94,7 +94,7 @@
 }
 
 .contactForm form .inputBox .btn{
-    width: 70%;
+    width: 100%;
     padding: 18px 10px;
     font-size: 20px;
     border: 0;
@@ -108,6 +108,8 @@
     color: #003655;
     margin-top: 30px;
 }
+
+
 
 .contactForm form .inputBox:last-child{
     margin-bottom: 0;
