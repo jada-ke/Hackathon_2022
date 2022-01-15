@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import pandas as pd
 
 def import_inflation_data(filename, start_year):
