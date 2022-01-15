@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="landingPage.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='landingPage.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -22,28 +22,26 @@
             <div class="contactForm">
                 <div class="contact-Form">
                     
-                    <form action="contact.php" method="POST" class="contactForm">
+                    <form action="results" method="POST" class="contactForm">
 
                         <div class="inputBox">
                             <label>What is your job?</label>
-                            <input id="job" type="text" class="input" required="required" name="job">
+                            <input id="job" type="text" class="input" required="required" name="job" placeholder="Ex: Dentist, Coach, Professor...">
 
                         </div>
                         <div class="inputBox">
                             <label>Where do you live?</label>
-                            <input id="location" type="text" class="input" required="required" name="location">
+                            <input id="location" type="text" class="input" required="required" name="location" placeholder="Ex: Ontario, Quebec">
 
                         </div>
                         <div class="inputBox">
-                            <label>What is your salary?</label>
-                            <input id="salary" type="text" class="input" required="required"
-                                name="salary">
+                            <label>What is your hourly salary (CAN)?</label>
+                            <input id="salary" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="input" required="required" name="salary" placeholder="Ex: 40.5, 18.73...">
 
                         </div>
                         <div class="inputBox">
-                            <label>For how long were you paid the same salary?</label>
-                            <input id="time" type="text" class="input" required="required"
-                                name="time">
+                            <label>When was your last raise?</label>
+                            <input id="time" type="number" class="input" required="required" name="time" placeholder="Ex: 2019, 2020">
 
 
 
