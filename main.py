@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from inflation import *
+from googlemaps import *
 
 app = Flask(__name__)
 
@@ -14,8 +15,13 @@ def results():
     salary = float(request.form['salary'])
     time = int(request.form['time'])
     print(job, location, salary, time)
+
+    with open('api_key.txt') as f:
+        api_key = f.readline()
+        f.close
+
     cumulative_infl, years, total_inflation, yearly_infl = import_inflation_data("Data/inflation.csv", time)
-    return render_template("index.html", years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
+    return render_template("results.html", years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
 
 if __name__ == "__main__":
     app.run(debug=True)
