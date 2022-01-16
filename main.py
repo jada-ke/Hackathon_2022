@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request
 import requests
 import pandas as pd
+from PIL import Image, ImageDraw
 from inflation import import_inflation_data
 from googlemaps import query_gmaps
 from salary_distribution import salary_distribution
 from find_titles_locations import find_jobtitles_locations
-from scrape_data import get_job_overall_mean, read_data, get_job_places
+from scrape_data import get_job_overall_mean, read_data, get_job_provinces
+from salary_hotspots import place_hotspot
+import base64
+from io import BytesIO
 
 wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
 
@@ -51,6 +55,14 @@ def results():
     elif salary < salary_distrib_prov[2]: salary_comp_prov = "under"
     else: salary_comp_prov = "above"
 
+    im = Image.open("static/image_3.png")
+    draw = ImageDraw.Draw(im)
+    place_hotspot(draw, api_key, job, wage_file)
+
+    buffered = BytesIO()
+    im.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue())
+
     return render_template("result.html",
     job_name=job,
     salary_comp=salary_comp,
@@ -61,6 +73,7 @@ def results():
     low_wage_prov=round(salary_distrib_prov[0], 2),
     median_wage_prov=round(salary_distrib_prov[2], 2),
     high_wage_prov=round(salary_distrib_prov[1], 2),
+    canada_map = img_str.decode('utf-8'),
     years=years, 
     cumulative_infl=cumulative_infl, 
     yearly_infl=yearly_infl, 

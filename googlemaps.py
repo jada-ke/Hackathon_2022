@@ -11,4 +11,7 @@ def query_gmaps(place_name, api_key):
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
-    return response.json()["candidates"][0]["geometry"]["location"]
+    try:
+        return response.json()["candidates"][0]["geometry"]["location"]
+    except:
+        return {"lat": -1000, "lng" : -1000}
