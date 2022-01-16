@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='landingPage.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='landingPage.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <title>Document</title>
+    </head>
 
 <body>
 
     <div class="sectionOne">
-        <h1><span>Convince</span> your boss to give you a <span>raise!</span></h1>
-    </div>
+        <div class="gridContainer">
+            <div class="money">
+                <img src="money2.png" alt="">
+            </div>
+            <div class="title">
+                <h1><span>Convince</span> your boss to give you a <span>raise!</span></h1>
 
 
-    <div class="form">
-        <div class="sectionTwo">
-            <div class="contactForm">
-                <div class="contact-Form">
 
-                    <form action="result" method="POST" class="contactForm">
+                <div class="form">
+                    <div class="sectionTwo">
+                        <div class="contactForm">
+                            <div class="contact-Form">
+                                <form action="result" method="POST" class="contactForm">
 
-                        <div class="inputBox">
-                            <label>What is your job?</label>
+                                    <div class="inputBox">
+                                        <label>What is your job?</label>
 
-                            <div class="custom-select">
+                                        <div class="custom-select">
 
-                                <select id="job" name="job">
-                                    <option value="default"></option>
-                                </select>
+                                            <select id="job" name="job">
+                                                <option value="default"></option>
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="inputBox">
+                                        <label>Where do you live?</label>
+
+                                        <div class="custom-select">
+                                            <select id="location" name="location">
+                                                <option value="default"></option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="inputBox">
+                                        <label>What is your salary?</label>
+                                        <input id="salary" type="text"
+                                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"
+                                            class="input" required="required" name="salary"
+                                            placeholder="Ex: 40.5, 18.73...">
+
+                                    </div>
+                                    <div class="inputBox">
+                                        <label>When was your last raise?</label>
+                                        <input id="time" type="number" class="input" required="required" name="time"
+                                            placeholder="Ex: 2019, 2020">
+
+
+
+                                    </div>
+                                    <div class="inputBox">
+                                        <input type="submit" value="Give me a raise" class="btn">
+                                    </div>
+
+                                </form>
+
 
                             </div>
-
-                        </div>
-                        <div class="inputBox">
-                            <label>Where do you live?</label>
-
-                            <div class="custom-select">
-                                <select id="location" name="location">
-                                    <option value="default"></option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="inputBox">
-                            <label>What is your salary?</label>
-                            <input id="salary" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="input" required="required" name="salary" placeholder="Ex: 40.5, 18.73...">
-
-                        </div>
-                        <div class="inputBox">
-                            <label>When was your last raise?</label>
-                            <input id="time" type="number" class="input" required="required" name="time" placeholder="Ex: 2019, 2020">
-
-
-
-                        </div>
-                        <div class="inputBox">
-                            <input type="submit" value="Give me a raise" class="btn">
                         </div>
 
-                    </form>
+                    </div>
 
 
                 </div>
+
             </div>
 
-        </div>
 
+        </div>
 
     </div>
 
@@ -79,7 +94,7 @@
 
         var select = document.getElementById("job"),
             //arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
-            arr = {{  jobs_list|safe  }};
+            arr = {{ jobs_list| safe  }};
 
         for (var i = 0; i < arr.length; i++) {
             var option = document.createElement("OPTION"),
@@ -91,7 +106,7 @@
 
         var select = document.getElementById("location"),
             //arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
-            arr = {{  locations_list|safe  }};
+            arr = {{ locations_list| safe  }};
 
         for (var i = 0; i < arr.length; i++) {
             var option = document.createElement("OPTION"),
