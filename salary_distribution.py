@@ -1,6 +1,5 @@
 from scrape_data import read_data
 from find_titles_locations import find_jobtitles_locations
-from numpy import string_
 import pandas as pd
 
 def salary_distribution(locations, job, wage_file):
