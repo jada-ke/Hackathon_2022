@@ -11,7 +11,7 @@ def salary_distribution(locations, job):
     salary_dist={}
     for location in locations:
         min_salary=read_data(wage_file, job, location)[0]
-        max_salary=read_data(wage_file, job, location)[2]
+        max_salary=read_data(wage_file, job, location)[1]
         salary_range= [min_salary, max_salary]
         salary_dist[location]=salary_range
 
