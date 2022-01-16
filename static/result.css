@@ -75,7 +75,7 @@
 }
 
 /*RESPONSIVE*/
-@media (min-width: 600px) {
+@media (min-width: 900px) {
     .gridContainer { 
         grid-template-columns: repeat(3, 1fr); 
         
