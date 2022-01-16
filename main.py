@@ -39,7 +39,7 @@ def results():
     print(salary_distrib)
     
     low_wage, median_wage, high_wage = (0, 0, 0)
-    return render_template("result.html", low_wage=low_wage, median_wage=median_wage, high_wage=high_wage, years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
+    return render_template("result.html", job_name=job, low_wage=low_wage, median_wage=median_wage, high_wage=high_wage, years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
 
 if __name__ == "__main__":
     app.run(debug=True)
