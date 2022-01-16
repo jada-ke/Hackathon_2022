@@ -31,13 +31,15 @@ body{
     width: 100%;
     padding: 0;
     border: none;
-    margin-left: -150px;
-    margin-top: -60px;
+    
 }
 
 .sectionOne .gridContainer img{
-    width: 120%;
+    width: 35%;
     height: auto;
+    position: absolute;
+    left: 0;
+    top: -50px;
 }
 
 .sectionOne .title{
@@ -46,6 +48,8 @@ body{
     align-items:center;
     justify-content: center;
     width: 100%;
+    margin-left: -300px;
+    margin-top: -50px;
 }
 .sectionOne h1{
     text-align: center;
@@ -77,8 +81,13 @@ body{
     .sectionOne .money{
         display: none;
     }
-}
 
+    .sectionOne .title{
+        
+        margin-left: 0px;
+        margin-top:  0px;
+    }
+}
 /*CONTACT FORM*/
 .sectionTwo{
     margin-top: -30px;
