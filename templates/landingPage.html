@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='landingPage.css') }}">
+    <link rel="stylesheet" href="landingPage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -17,31 +17,44 @@
         <h1><span>Convince</span> your boss to give you a <span>raise!</span></h1>
     </div>
 
+
     <div class="form">
         <div class="sectionTwo">
             <div class="contactForm">
                 <div class="contact-Form">
-                    
-                    <form action="results" method="POST" class="contactForm">
+
+                    <form action="result.html" method="POST" class="contactForm">
 
                         <div class="inputBox">
                             <label>What is your job?</label>
-                            <input id="job" type="text" class="input" required="required" name="job" placeholder="Ex: Dentist, Coach, Professor...">
+
+                            <div class="custom-select">
+
+                                <select id="job">
+                                    <option value="default">default</option>
+                                </select>
+
+                            </div>
 
                         </div>
                         <div class="inputBox">
                             <label>Where do you live?</label>
-                            <input id="location" type="text" class="input" required="required" name="location" placeholder="Ex: Ontario, Quebec">
+
+                            <div class="custom-select">
+                                <select id="location">
+                                    <option value="default">default</option>
+                                </select>
+                            </div>
 
                         </div>
                         <div class="inputBox">
-                            <label>What is your hourly salary (CAN)?</label>
-                            <input id="salary" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="input" required="required" name="salary" placeholder="Ex: 40.5, 18.73...">
+                            <label>What is your salary?</label>
+                            <input id="salary" type="text" class="input" required="required" name="salary">
 
                         </div>
                         <div class="inputBox">
                             <label>When was your last raise?</label>
-                            <input id="time" type="number" class="input" required="required" name="time" placeholder="Ex: 2019, 2020">
+                            <input id="time" type="text" class="input" required="required" name="time">
 
 
 
@@ -50,8 +63,8 @@
                             <input type="submit" value="Give me a raise" class="btn">
                         </div>
 
-
                     </form>
+
 
                 </div>
             </div>
@@ -61,6 +74,32 @@
 
     </div>
 
+
+    <script>
+
+        var select = document.getElementById("job"),
+            arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+
+        for (var i = 0; i < arr.length; i++) {
+            var option = document.createElement("OPTION"),
+                txt = document.createTextNode(arr[i]);
+            option.appendChild(txt);
+            option.setAttribute("value", arr[i]);
+            select.insertBefore(option, select.lastChild);
+        }
+
+        var select = document.getElementById("location"),
+            arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+
+        for (var i = 0; i < arr.length; i++) {
+            var option = document.createElement("OPTION"),
+                txt = document.createTextNode(arr[i]);
+            option.appendChild(txt);
+            option.setAttribute("value", arr[i]);
+            select.insertBefore(option, select.lastChild);
+        }
+
+    </script>
 
 </body>
 
