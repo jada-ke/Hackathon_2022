@@ -26,6 +26,7 @@
     font-size: 35px;
 }
 
+
 /*CONTACT FORM*/
 .sectionTwo{
     margin-top: -90px;
@@ -69,8 +70,12 @@
     text-align: center;
 }
 
-.contactForm form .inputBox .input,
-.contactForm form .inputBox .textarea{
+.contactForm form .inputBox .custom-select{
+    width: 100%;
+}
+
+.contactForm form .inputBox .input, 
+.contactForm form .inputBox select{
     width: 100%;
     outline: none;
     border: none;
@@ -83,13 +88,14 @@
     border-radius: 15px;
 }
 
-.contactForm form .inputBox .textarea{
-    resize: none;
-    height: 125px;
+.contactForm form .inputBox .custom-select option{
+    background-color: white;
 }
 
+
+
 .contactForm form .inputBox .input:focus,
-.contactForm form .inputBox .textarea:focus{
+.contactForm form .inputBox select:focus{
     border: 1px solid #FF9F9F;
 }
 
