@@ -78,7 +78,8 @@
     <script>
 
         var select = document.getElementById("job"),
-            arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+            //arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+            arr = {{  jobs_list|safe  }};
 
         for (var i = 0; i < arr.length; i++) {
             var option = document.createElement("OPTION"),
@@ -89,7 +90,8 @@
         }
 
         var select = document.getElementById("location"),
-            arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+            //arr = ["html", "css", "java", "javascript", "php", "c++", "node.js", "ASP", "JSP", "SQL"];
+            arr = {{  locations_list|safe  }};
 
         for (var i = 0; i < arr.length; i++) {
             var option = document.createElement("OPTION"),

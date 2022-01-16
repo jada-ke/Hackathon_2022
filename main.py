@@ -4,6 +4,7 @@ import pandas as pd
 from inflation import import_inflation_data
 from googlemaps import query_gmaps
 from salary_distribution import salary_distribution
+from find_titles_locations import find_jobtitles_locations
 
 wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
 
@@ -11,7 +12,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("landingPage.html")
+    jobs_list, locations_list = find_jobtitles_locations(wage_file)
+    jobs_list = sorted(jobs_list)
+    locations_list = sorted(locations_list[1:])
+    for x, elem in enumerate(jobs_list): 
+        if "'" in elem: jobs_list[x] = elem.replace("'", " ")
+    return render_template("landingPage.html", jobs_list=str(jobs_list).replace("'", '"'), locations_list=str(locations_list[1:]).replace("'", '"'))
 
 @app.route("/result", methods=['POST'])
 def results():
