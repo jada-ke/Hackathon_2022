@@ -1,8 +1,5 @@
 from numpy import string_
 import pandas as pd
-wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
-job= input(str("Please enter your job:"))
-location= input(str("Please enter your location:"))
 
 def read_data(wage_file, job, location):
     workbook= pd.read_csv(wage_file)

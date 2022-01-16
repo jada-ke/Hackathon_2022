@@ -117,5 +117,8 @@
     font-size: 20px;
     text-align: center;
     color: #004B76;
-    
+}
+
+.sectionFour canvas{
+    margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 from numpy import string_
 import pandas as pd
-wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
+
 
 def find_jobtitles_locations(wage_file):
     workbook= pd.read_csv(wage_file)

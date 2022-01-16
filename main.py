@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
-from inflation import *
-from googlemaps import *
+import requests
+import pandas as pd
+from inflation import import_inflation_data
+from googlemaps import query_gmaps
+from salary_distribution import salary_distribution
+
+wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
 
 app = Flask(__name__)
 
@@ -8,10 +13,10 @@ app = Flask(__name__)
 def home():
     return render_template("landingPage.html")
 
-@app.route("/results", methods=['POST'])
+@app.route("/result", methods=['POST'])
 def results():
-    job = request.form['job']
-    location = request.form['location']
+    job = request.form.get('job')
+    location = request.form.get('location')
     salary = float(request.form['salary'])
     time = int(request.form['time'])
     print(job, location, salary, time)
@@ -21,7 +26,14 @@ def results():
         f.close
 
     cumulative_infl, years, total_inflation, yearly_infl = import_inflation_data("Data/inflation.csv", time)
-    return render_template("results.html", years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
+
+    print(job, location, salary, time)
+
+    salary_distrib = salary_distribution(location, job, wage_file)
+    print(salary_distrib)
+    
+    low_wage, median_wage, high_wage = (0, 0, 0)
+    return render_template("result.html", low_wage=low_wage, median_wage=median_wage, high_wage=high_wage, years=years, cumulative_infl=cumulative_infl, yearly_infl=yearly_infl, inflation_total=total_inflation)
 
 if __name__ == "__main__":
     app.run(debug=True)
