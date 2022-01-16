@@ -15,7 +15,4 @@ def salary_distribution(locations, job):
         salary_range= [min_salary, max_salary]
         salary_dist[location]=salary_range
 
-    print(salary_dist)
     return salary_dist
-
-salary_distribution(locations,job)
