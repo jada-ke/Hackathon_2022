@@ -1,0 +1,67 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title>pie chart</title>  
+        <meta charset="utf-8">  
+        <script>  
+            //drawing pie chart 
+            function drawCircle(canvasId, data_arr, color_arr, text_arr)  
+            {  
+                var c = document.getElementById(canvasId);  
+                var ctx = c.getContext("2d");  
+  
+                var radius = c.height / 2 - 20; //radis
+                var ox = radius + 20, oy = radius + 20; //center of the circle 
+  
+                var width = 30, height = 10; //hight and width of the chart  
+                var posX = ox * 2 + 20, posY = 30;   //  
+                var textX = posX + width + 5, textY = posY + 10;  
+  
+                var startAngle = 0; //start angle  
+                var endAngle = 0;   //end angle  
+                for (var i = 0; i < data_arr.length; i++)  
+                {  
+                    //draw the pie chart  
+                    endAngle = endAngle + data_arr[i] * Math.PI * 2; //end angle  
+                    ctx.fillStyle = color_arr[i];  
+                    ctx.beginPath();  
+                    ctx.moveTo(ox, oy); //move to the center of the circle  
+                    ctx.arc(ox, oy, radius, startAngle, endAngle, false);  
+                    ctx.closePath();  
+                    ctx.fill();  
+                    startAngle = endAngle; //setting the start angle 
+  
+                    //ratio and font  
+                    ctx.fillStyle = color_arr[i];  
+                    ctx.fillRect(posX, posY + 20 * i, width, height);  
+                    ctx.moveTo(posX, posY + 20 * i);  
+                    ctx.font = 'bold 12px Times New Roman';//font 
+                    ctx.fillStyle = color_arr[i]; //"#000000";  
+                    var percent = text_arr[i] + "：" + 100 * data_arr[i] + "%";  
+                    ctx.fillText(percent, textX, textY + 20 * i);  
+                }  
+            }  
+  
+            function init() {  
+                //draw the chart  
+                //ratio value and color 
+                var data_arr = [0.05, 0.25, 0.6, 0.1];  
+                var color_arr = ["#FF9F9F", "#FF2D2D", "#A70000", "#C4C4C4"];  
+                var text_arr = ["1", "2", "3", "4"];  
+  
+                drawCircle("canvas_circle", data_arr, color_arr, text_arr);  
+            }  
+  
+            //load the page by init()function
+            window.onload = init;  
+        </script>  
+    </head>  
+    <body>  
+        <h3>HTML Pie Chart</h3>  
+        <p>  
+            <canvas id="canvas_circle" width="500" height="300" style="border:2px solid #42465c;" >  
+                browser doesn't support canvas  
+            </canvas>  
+        </p>  
+    </body>  
+</html>

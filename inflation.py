@@ -2,6 +2,8 @@ import pandas as pd
 
 def import_inflation_data(filename, start_year):
     inflation_rates = pd.read_csv(filename, sep = "\t")
+    start_year = max(start_year, 1960)
+    start_year = min(start_year, 2021)
     row_nbr = 2021-start_year
     
     cumulative_infl = [inflation_rates.iloc[row_nbr]["inflation"]]

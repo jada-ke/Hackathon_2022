@@ -1,0 +1,185 @@
+*
+{
+    margin:0;
+    padding:0;
+    font-family: "Sora", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
+
+body{
+    background: linear-gradient(180deg, #E6F6FF 0%, #FFFFFF 34.38%, #E6F6FF 94.27%);
+}
+
+/*SECTION ONE*/
+.sectionOne{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    border: none;
+    margin-top: 30px;
+}
+
+.sectionOne .gridContainer{
+    display: grid;
+    margin: auto;
+    
+    justify-items: center;
+    width: 100%;
+    padding: 0;
+    border: none;
+    
+}
+
+.sectionOne .gridContainer img{
+    width: 35%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.sectionOne .title{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    margin-left: -300px;
+    margin-top: -50px;
+}
+.sectionOne h1{
+    text-align: center;
+    color: #004B76;
+    font-size: 30px;
+    padding: 50px;
+    width: 70%;
+    
+}
+
+.sectionOne span{
+    font-size: 35px;
+}
+
+/*RESPONSIVE*/
+@media (min-width: 940px) {
+    .sectionOne .gridContainer { 
+        grid-template-columns: repeat(2, 1fr); 
+        
+        }
+}
+
+@media (max-width: 940px) {
+    .sectionOne .gridContainer{ 
+        margin-left: 0px;
+        margin-top: 0px;
+        }
+
+    .sectionOne .money{
+        display: none;
+    }
+
+    .sectionOne .title{
+        
+        margin-left: 0px;
+        margin-top:  0px;
+    }
+}
+/*CONTACT FORM*/
+.sectionTwo{
+    margin-top: -30px;
+    width: 100%;
+}
+
+.contactForm{
+    width: 100%;
+}
+
+
+
+.contactForm form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactForm form .inputBox{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contactForm form .inputBox label{
+    width: 100%;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    color: #003655;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
+
+.contactForm form .inputBox .custom-select{
+    width: 100%;
+}
+.contactForm form .inputBox .input, 
+.contactForm form .inputBox select{
+    width: 300px;
+    outline: none;
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.contactForm form .inputBox .custom-select option{
+    background-color: white;
+}
+
+
+
+.contactForm form .inputBox .input:focus,
+.contactForm form .inputBox select:focus{
+    border: 1px solid #FF9F9F;
+}
+
+.contactForm form .inputBox .btn{
+    width: 100%;
+    padding: 15px 15px;
+    
+    font-size: 20px;
+    border: 0;
+    background: #A0DDFF;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    outline: none;
+    transition: 0.5s;
+    color: #003655;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+.contactForm form .inputBox:last-child{
+    margin-bottom: 0;
+}
+
+.contactForm form .inputBox .btn:hover{
+    background: #51c2ff;
+}
+

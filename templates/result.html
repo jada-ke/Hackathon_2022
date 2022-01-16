@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='result.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Give me a raise!</title>
+</head>
+<body>
+
+    <div class="sectionOne">
+        <h1>Results for the job: {{  job_name  }}</h1>
+    </div>
+
+    <div class="sectionTwo">
+        <h2>How your salary compares to other's</h2>
+        <h2>Across Canada</h2>
+        <p>Your salary is {{  salary_comp  }} the median</p>
+        <div class="gridContainer">
+            <div class="box">
+                <h4>{{ low_wage }}$</h4>
+                <h5>Low wage</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  median_wage  }}$</h4>
+                <h5>Median</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  high_wage  }}$</h4>
+                <h5>High wage</h5>
+            </div>
+        </div>
+        <h2>In your province</h2>
+        <p>Your salary is {{  salary_comp_prov  }} the median</p>
+        <div class="gridContainer">
+            <div class="box">
+                <h4>{{ low_wage_prov }}$</h4>
+                <h5>Low wage</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  median_wage_prov  }}$</h4>
+                <h5>Median</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  high_wage_prov  }}$</h4>
+                <h5>High wage</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sectionThree">
+        <h2>How employees get paid all over canada for the same job</h2>
+        <img src="data:image/jpeg;base64,{{ canada_map|safe }}" alt="">
+    </div>
+
+    <div class="sectionFour">
+        <h2>Inflation rate since your last raise</h2>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <script>
+            var xValues = {{  years  }};
+            var ctx = document.getElementById('myChart');
+
+            var myChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                data: {{  cumulative_infl  }},
+                borderColor: "red",
+                fill: false,
+                label: "Cumulative inflation"
+                },
+                {
+                data: {{  yearly_infl  }},
+                borderColor: "blue",
+                fill: false,
+                label: "Yearly inflation"
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Inflation since your last raise'
+                }
+            }
+            });
+        </script>
+        <p>Since your last raise, inflation was {{ inflation_total }}%</p>
+    </div>
+    
+</body>
+</html>
