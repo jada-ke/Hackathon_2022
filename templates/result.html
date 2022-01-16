@@ -18,7 +18,8 @@
 
     <div class="sectionTwo">
         <h2>How your salary compares to other's</h2>
-        <p>Your salary is above the median</p>
+        <h2>Across Canada</h2>
+        <p>Your salary is {{  salary_comp  }} the median</p>
         <div class="gridContainer">
             <div class="box">
                 <h4>{{ low_wage }}$</h4>
@@ -32,6 +33,24 @@
 
             <div class="box">
                 <h4>{{  high_wage  }}$</h4>
+                <h5>High wage</h5>
+            </div>
+        </div>
+        <h2>In your province</h2>
+        <p>Your salary is {{  salary_comp_prov  }} the median</p>
+        <div class="gridContainer">
+            <div class="box">
+                <h4>{{ low_wage_prov }}$</h4>
+                <h5>Low wage</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  median_wage_prov  }}$</h4>
+                <h5>Median</h5>
+            </div>
+
+            <div class="box">
+                <h4>{{  high_wage_prov  }}$</h4>
                 <h5>High wage</h5>
             </div>
         </div>

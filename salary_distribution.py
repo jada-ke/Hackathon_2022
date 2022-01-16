@@ -5,10 +5,7 @@ import pandas as pd
 def salary_distribution(locations, job, wage_file):
     salary_dist={}
     for location in locations:
-        min_salary=read_data(wage_file, job, location)[0]
-        median_salary=read_data(wage_file, job, location)[2]
-        max_salary=read_data(wage_file, job, location)[1]
-        salary_range= [min_salary, max_salary, median_salary]
-        salary_dist[location]=salary_range
+        salary_range = read_data(wage_file, job, location)
+        salary_dist[location] = salary_range
 
     return salary_dist
