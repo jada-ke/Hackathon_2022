@@ -5,6 +5,7 @@ from googlemaps import query_gmaps
 from gmap_to_img import gmapscoord_to_imgpixel
 from scrape_data import get_job_placesss
 from PIL import Image, ImageDraw
+from random import sample, seed
 
 wage_file=r"Data/2a71-das-wage2021opendata-esdc-all-19nov2021-vf.csv"
 #im.show()
@@ -25,6 +26,15 @@ def get_data_by_place(wage_file, job):
         tmp = [index["Low_Wage_Salaire_Minium"].mean(), index["High_Wage_Salaire_Maximal"].mean(), index["Median_Wage_Salaire_Median"].mean()]
         if not isNaN(tmp):
             loc_wage_dict[x] = tmp
+    kept_locations = loc_wage_dict.keys()
+    if len(kept_locations) > 10:
+        seed(0)
+        kept_locations = sample(kept_locations, 10)
+        tmp = {}
+        for x in kept_locations:
+            tmp[x] = loc_wage_dict[x]
+        loc_wage_dict = tmp
+
     return loc_wage_dict
 
 def get_median(salary_dist):
